@@ -14,8 +14,8 @@ class UserLoginService : GlobalServiceBase, IUserLoginService, IWinUIService<Use
         if (LoginFunc is null)
             return false;
         var result = await LoginFunc();
-        UserStateChanged?.Invoke(this, login);
-        return login;
+        UserStateChanged?.Invoke(this, result);
+        return result;
     }
 
     public bool TryLogout()
@@ -23,7 +23,7 @@ class UserLoginService : GlobalServiceBase, IUserLoginService, IWinUIService<Use
         if (LogoutFunc is null)
             return false;
         var result = LogoutFunc();
-        UserStateChanged?.Invoke(this, login);
-        return login;
+        UserStateChanged?.Invoke(this, !result);
+        return !result;
     }
 }

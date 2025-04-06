@@ -18,6 +18,10 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>First Release</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper.git</RepositoryUrl>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\LICENSE.txt">
