@@ -20,7 +20,7 @@ public static class ProfileHelper
             throw new ArgumentException("Invalid property path. It should be in the format 'NameSpace.ClassName.PropertyName'.");
         string[] className = splitPath[..^1];
         var propertyName = splitPath[^1];
-        var type = Type.GetType(string.Join(".", className)) ?? throw new ArgumentException($"Type '{className}' not found.");
+        var type = Assembly.GetEntryAssembly()?.GetType(string.Join(".", className)) ?? throw new ArgumentException($"Type '{className}' not found.");
         var propertyInfo = type.GetProperty(propertyName, BindingFlags.Static | BindingFlags.Public) ?? throw new ArgumentException($"Property '{propertyName}' not found on type '{className}'.");
         if (value is not null && !propertyInfo.PropertyType.IsAssignableFrom(value.GetType()))
             throw new ArgumentException($"Value is not assignable to property '{propertyName}' of type '{propertyInfo.PropertyType}'.");
@@ -39,7 +39,7 @@ public static class ProfileHelper
             return default;
         string[] className = splitPath[..^1];
         var propertyName = splitPath[^1];
-        var type = Type.GetType(string.Join(".", className));
+        var type = Assembly.GetEntryAssembly()?.GetType(string.Join(".", className));
         if (type is null)
             return default;
         var propertyInfo = type.GetProperty(propertyName, BindingFlags.Static | BindingFlags.Public);
@@ -61,7 +61,7 @@ public static class ProfileHelper
             return default;
         string[] className = splitPath[..^1];
         var propertyName = splitPath[^1];
-        var type = Type.GetType(string.Join(".", className));
+        var type = Assembly.GetEntryAssembly()?.GetType(string.Join(".", className));
         if (type is null)
             return default;
         var propertyInfo = type.GetProperty(propertyName, BindingFlags.Static | BindingFlags.Public);

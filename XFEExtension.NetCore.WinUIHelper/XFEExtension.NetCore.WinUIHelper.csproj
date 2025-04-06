@@ -9,14 +9,19 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>XFEExtension.NetCore.WinUIHelper</Title>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <Authors>XFEstudio</Authors>
     <PackageIcon>logoIcon.png</PackageIcon>
     <Description>WinUI的各种工具类，帮助开发者快速构建一个模块化的WinUI项目</Description>
     <Copyright>寰宇朽力网络科技有限公司版权所有</Copyright>
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>修复AppPathHelper中的应用程序名称问题</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      优化 ProfileHelper 类型获取逻辑
+
+      在 `ProfileHelper.cs` 文件中，将类型获取方式从 `Type.GetType` 修改为 `Assembly.GetEntryAssembly()?.GetType`，增强了类型查找的安全性。同时，改进了错误处理逻辑，确保在未找到类型或属性时返回默认值，而不是抛出异常。
+
+    </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper.git</RepositoryUrl>
