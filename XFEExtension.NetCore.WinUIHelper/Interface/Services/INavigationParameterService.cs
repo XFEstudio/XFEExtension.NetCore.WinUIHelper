@@ -26,6 +26,4 @@ public interface INavigationParameterService<T> : IPageService
     /// </summary>
     /// <param name="parameter">新的参数</param>
     void OnParameterChange(object? parameter);
-
-    static INavigationParameterService() => ServiceManager.RegisterService<T>(() => new NavigationParameterService<T>());
 }

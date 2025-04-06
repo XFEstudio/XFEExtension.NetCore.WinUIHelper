@@ -4,6 +4,8 @@ VisualStudioVersion = 17.14.35821.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFEExtension.NetCore.WinUIHelper", "XFEExtension.NetCore.WinUIHelper\XFEExtension.NetCore.WinUIHelper.csproj", "{AB7464D4-D50E-4206-A54A-52D1984DBD75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFEExtension.NetCore.WinUIHelper.TestApp", "XFEExtension.NetCore.WinUIHelper.TestApp\XFEExtension.NetCore.WinUIHelper.TestApp.csproj", "{C1FDD8F5-FFFE-4993-972A-2E89ED8BC0CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,12 @@ Global
 		{AB7464D4-D50E-4206-A54A-52D1984DBD75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB7464D4-D50E-4206-A54A-52D1984DBD75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB7464D4-D50E-4206-A54A-52D1984DBD75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1FDD8F5-FFFE-4993-972A-2E89ED8BC0CB}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{C1FDD8F5-FFFE-4993-972A-2E89ED8BC0CB}.Debug|Any CPU.Build.0 = Debug|x64
+		{C1FDD8F5-FFFE-4993-972A-2E89ED8BC0CB}.Debug|Any CPU.Deploy.0 = Debug|x64
+		{C1FDD8F5-FFFE-4993-972A-2E89ED8BC0CB}.Release|Any CPU.ActiveCfg = Release|x64
+		{C1FDD8F5-FFFE-4993-972A-2E89ED8BC0CB}.Release|Any CPU.Build.0 = Release|x64
+		{C1FDD8F5-FFFE-4993-972A-2E89ED8BC0CB}.Release|Any CPU.Deploy.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

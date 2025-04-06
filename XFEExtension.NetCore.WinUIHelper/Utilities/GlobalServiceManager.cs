@@ -50,11 +50,12 @@ public static class ServiceManager
     /// <returns></returns>
     public static T? GetService<T>()
     {
+        var type = typeof(T);
+        if (type.IsGenericType)
+            return (T?)Activator.CreateInstance(type.Assembly.GetType($"XFEExtension.NetCore.WinUIHelper.Implements.Services.{type.Name![1..]}")!.MakeGenericType(type.GenericTypeArguments));
         var typeName = typeof(T).Name;
         if (services.TryGetValue(typeName, out var ctr))
-        {
             return (T?)ctr();
-        }
         return default;
     }
 }

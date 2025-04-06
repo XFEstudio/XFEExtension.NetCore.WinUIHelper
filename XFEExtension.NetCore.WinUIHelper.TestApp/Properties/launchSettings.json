@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "XFEExtension.NetCore.WinUIHelper.TestApp (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "XFEExtension.NetCore.WinUIHelper.TestApp (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
