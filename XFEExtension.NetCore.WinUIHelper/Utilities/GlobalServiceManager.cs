@@ -1,4 +1,5 @@
-﻿using XFEExtension.NetCore.WinUIHelper.Interface.Services;
+﻿using XFEExtension.NetCore.WinUIHelper.Implements.Services;
+using XFEExtension.NetCore.WinUIHelper.Interface.Services;
 
 namespace XFEExtension.NetCore.WinUIHelper.Utilities;
 
@@ -8,7 +9,19 @@ namespace XFEExtension.NetCore.WinUIHelper.Utilities;
 public static class ServiceManager
 {
     private static readonly List<IGlobalService> globalServices = [];
-    private static readonly Dictionary<string, Func<object>> services = [];
+    private static readonly Dictionary<string, Func<object>> services = new()
+    {
+        { nameof(IAutoNavigationService), () => new AutoNavigationService() },
+        { nameof(IDialogService), () => new DialogService() },
+        { nameof(IListViewService), () => new ListViewService() },
+        { nameof(ILoadingService), () => new LoadingService() },
+        { nameof(IMessageService), () => new MessageService() },
+        { nameof(INavigationService), () => new AutoNavigationService() },
+        { nameof(INavigationViewService), () => new NavigationViewService() },
+        { nameof(IPageService), () => new PageService() },
+        { nameof(ISettingService), () => new SettingService() },
+        { nameof(IUserLoginService), () => new UserLoginService() }
+    };
     /// <summary>
     /// 注册全局服务
     /// </summary>

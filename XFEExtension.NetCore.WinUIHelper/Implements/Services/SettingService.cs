@@ -5,7 +5,7 @@ using XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 
 namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 
-class SettingService : GlobalServiceBase, ISettingService, IWinUIService<SettingService, ISettingService>
+class SettingService : GlobalServiceBase, ISettingService
 {
     private readonly Dictionary<object, IProfileInfoEntry> settingControls = [];
 

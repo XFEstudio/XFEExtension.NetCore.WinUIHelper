@@ -11,6 +11,11 @@ namespace XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 public static class AppThemeHelper
 {
     /// <summary>
+    /// 主窗口
+    /// </summary>
+    public static Window? MainWindow { get; set; }
+
+    /// <summary>
     /// 应用程序主题
     /// </summary>
     public static ElementTheme Theme { get; set; } = ElementTheme.Default;
@@ -21,10 +26,10 @@ public static class AppThemeHelper
     /// <param name="theme">目标主题</param>
     public static void ChangeTheme(ElementTheme theme)
     {
-        if (StandardApp.MainWindow is null)
+        if (MainWindow is null)
             return;
 
-        if (StandardApp.MainWindow.Content is FrameworkElement rootElement)
+        if (MainWindow.Content is FrameworkElement rootElement)
         {
             rootElement.RequestedTheme = theme;
         }
@@ -42,35 +47,35 @@ public static class AppThemeHelper
             theme = Application.Current.RequestedTheme == ApplicationTheme.Light ? ElementTheme.Light : ElementTheme.Dark;
         }
 
-        StandardApp.MainWindow.AppWindow.TitleBar.ButtonForegroundColor = theme switch
+        MainWindow.AppWindow.TitleBar.ButtonForegroundColor = theme switch
         {
             ElementTheme.Dark => Colors.White,
             ElementTheme.Light => Colors.Black,
             _ => Colors.Transparent
         };
 
-        StandardApp.MainWindow.AppWindow.TitleBar.ButtonHoverForegroundColor = theme switch
+        MainWindow.AppWindow.TitleBar.ButtonHoverForegroundColor = theme switch
         {
             ElementTheme.Dark => Colors.White,
             ElementTheme.Light => Colors.Black,
             _ => Colors.Transparent
         };
 
-        StandardApp.MainWindow.AppWindow.TitleBar.ButtonHoverBackgroundColor = theme switch
+        MainWindow.AppWindow.TitleBar.ButtonHoverBackgroundColor = theme switch
         {
             ElementTheme.Dark => Color.FromArgb(0x33, 0xFF, 0xFF, 0xFF),
             ElementTheme.Light => Color.FromArgb(0x33, 0x00, 0x00, 0x00),
             _ => Colors.Transparent
         };
 
-        StandardApp.MainWindow.AppWindow.TitleBar.ButtonPressedBackgroundColor = theme switch
+        MainWindow.AppWindow.TitleBar.ButtonPressedBackgroundColor = theme switch
         {
             ElementTheme.Dark => Color.FromArgb(0x66, 0xFF, 0xFF, 0xFF),
             ElementTheme.Light => Color.FromArgb(0x66, 0x00, 0x00, 0x00),
             _ => Colors.Transparent
         };
 
-        StandardApp.MainWindow.AppWindow.TitleBar.BackgroundColor = Colors.Transparent;
+        MainWindow.AppWindow.TitleBar.BackgroundColor = Colors.Transparent;
     }
 
     /// <summary>

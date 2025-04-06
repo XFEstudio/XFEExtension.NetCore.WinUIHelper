@@ -9,14 +9,16 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>XFEExtension.NetCore.WinUIHelper</Title>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>XFEstudio</Authors>
     <PackageIcon>logoIcon.png</PackageIcon>
-    <Description>【DLL】WinUI的各种工具类，帮助开发者快速构建一个模块化的WinUI项目</Description>
+    <Description>WinUI的各种工具类，帮助开发者快速构建一个模块化的WinUI项目</Description>
     <Copyright>寰宇朽力网络科技有限公司版权所有</Copyright>
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>First Release</PackageReleaseNotes>
+    <PackageReleaseNotes>简化服务类实现，更新项目版本
+
+在多个服务类中移除了对 `IWinUIService` 接口的实现，直接实现各自的服务接口。添加了 `INavigationParameterService` 的静态构造函数以注册服务。移除了 `IWinUIService` 接口及 `StandardApp`、`StandardMainWindow` 的相关实现，简化了代码结构。更新了 `GlobalServiceManager` 中的服务注册字典，确保服务正确实例化。`AppThemeHelper` 类中添加了对主窗口的引用，简化主题更改实现。项目文件版本号从 `1.0.0` 更新至 `1.0.1`，并调整了描述信息。</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper.git</RepositoryUrl>

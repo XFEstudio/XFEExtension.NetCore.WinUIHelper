@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 
-class NavigationViewService : GlobalServiceBase, INavigationViewService, IWinUIService<NavigationViewService, INavigationViewService>
+class NavigationViewService : GlobalServiceBase, INavigationViewService
 {
     private NavigationView? _navigationView;
     private Frame? _frame;

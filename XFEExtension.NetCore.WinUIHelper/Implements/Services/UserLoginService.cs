@@ -2,7 +2,7 @@
 
 namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 
-class UserLoginService : GlobalServiceBase, IUserLoginService, IWinUIService<UserLoginService, IUserLoginService>
+class UserLoginService : GlobalServiceBase, IUserLoginService
 {
     public Func<Task<bool>>? LoginFunc { get; set; }
     public Func<bool>? LogoutFunc { get; set; }

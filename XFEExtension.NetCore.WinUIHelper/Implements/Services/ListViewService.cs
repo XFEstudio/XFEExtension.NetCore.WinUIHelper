@@ -3,7 +3,7 @@ using XFEExtension.NetCore.WinUIHelper.Interface.Services;
 
 namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 
-class ListViewService : IListViewService, IWinUIService<ListViewService, IListViewService>
+class ListViewService : IListViewService
 {
     private ListView? _listView;
 

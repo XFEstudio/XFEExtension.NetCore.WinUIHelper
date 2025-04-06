@@ -5,7 +5,7 @@ using XFEExtension.NetCore.WinUIHelper.Interface.Services;
 
 namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 
-class LoadingService : GlobalServiceBase, ILoadingService, IWinUIService<LoadingService, ILoadingService>
+class LoadingService : GlobalServiceBase, ILoadingService
 {
     private Grid? _loadingGrid;
     private Grid? _globalLoadingGrid;

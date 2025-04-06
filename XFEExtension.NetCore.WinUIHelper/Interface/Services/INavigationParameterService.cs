@@ -1,4 +1,7 @@
-﻿namespace XFEExtension.NetCore.WinUIHelper.Interface.Services;
+﻿using XFEExtension.NetCore.WinUIHelper.Implements.Services;
+using XFEExtension.NetCore.WinUIHelper.Utilities;
+
+namespace XFEExtension.NetCore.WinUIHelper.Interface.Services;
 
 /// <summary>
 /// 导航参数服务
@@ -23,4 +26,6 @@ public interface INavigationParameterService<T> : IPageService
     /// </summary>
     /// <param name="parameter">新的参数</param>
     void OnParameterChange(object? parameter);
+
+    static INavigationParameterService() => ServiceManager.RegisterService<T>(() => new NavigationParameterService<T>());
 }
