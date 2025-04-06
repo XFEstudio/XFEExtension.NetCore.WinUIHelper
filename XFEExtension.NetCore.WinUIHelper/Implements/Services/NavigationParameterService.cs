@@ -4,8 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 
-/// <inheritdoc cref="INavigationParameterService{T}"/>
-internal class NavigationParameterService<T> : INavigationParameterService<T>
+class NavigationParameterService<T> : INavigationParameterService<T>, IWinUIService<NavigationParameterService<T>, INavigationParameterService<T>>
 {
     private bool sameAsLast;
     private T? currentParameter;

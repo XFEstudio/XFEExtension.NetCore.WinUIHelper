@@ -7,7 +7,7 @@ using XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 
 /// <inheritdoc cref="IAutoNavigationService"/>
-internal class AutoNavigationService : GlobalServiceBase, IAutoNavigationService
+internal class AutoNavigationService : GlobalServiceBase, IAutoNavigationService, IWinUIService<AutoNavigationService, IAutoNavigationService>
 {
     private Frame? frame;
     public bool CanGoBack => frame is not null && frame.CanGoBack;

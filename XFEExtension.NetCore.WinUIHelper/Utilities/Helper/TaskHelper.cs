@@ -1,9 +1,9 @@
 ﻿namespace XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 
 /// <summary>
-/// 帮助类
+/// 任务帮助类
 /// </summary>
-public static class Helper
+public static class TaskHelper
 {
     /// <summary>
     /// 执行异步等待

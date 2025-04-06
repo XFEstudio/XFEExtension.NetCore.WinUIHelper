@@ -6,7 +6,6 @@ using XFEExtension.NetCore.StringExtension;
 
 namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 
-/// <inheritdoc cref="IMessageService"/>
 class MessageService : GlobalServiceBase, IMessageService
 {
     private StackPanel? messageStackPanel;

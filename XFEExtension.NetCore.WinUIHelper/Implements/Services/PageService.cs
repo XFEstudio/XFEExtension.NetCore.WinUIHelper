@@ -2,8 +2,7 @@
 
 namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 
-/// <inheritdoc cref="IPageService"/>
-internal class PageService : IPageService
+class PageService : IPageService, IWinUIService<PageService, IPageService>
 {
     private Page? _page;
     public Page? CurrentPage => _page;
