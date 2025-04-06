@@ -1,8 +1,6 @@
 ﻿using Microsoft.UI;
 using Windows.UI;
 using Windows.UI.ViewManagement;
-using XFEExtension.NetCore.WinUIHelper.Model;
-
 namespace XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 
 /// <summary>
@@ -11,7 +9,7 @@ namespace XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 public static class AppThemeHelper
 {
     /// <summary>
-    /// 主窗口
+    /// 主窗口（请勿在App构造函数内对其赋值）
     /// </summary>
     public static Window? MainWindow { get; set; }
 
