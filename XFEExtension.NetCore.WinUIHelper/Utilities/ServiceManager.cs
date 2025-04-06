@@ -48,14 +48,14 @@ public static class ServiceManager
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static T? GetService<T>()
+    public static T GetService<T>()
     {
         var type = typeof(T);
         if (type.IsGenericType)
-            return (T?)Activator.CreateInstance(type.Assembly.GetType($"XFEExtension.NetCore.WinUIHelper.Implements.Services.{type.Name![1..]}")!.MakeGenericType(type.GenericTypeArguments));
+            return (T?)Activator.CreateInstance((type.Assembly.GetType($"XFEExtension.NetCore.WinUIHelper.Implements.Services.{type.Name![1..]}") ?? throw new NullReferenceException("无法找到指定服务的实现类")).MakeGenericType(type.GenericTypeArguments)) ?? throw new NullReferenceException("无法找到指定服务的实现类");
         var typeName = typeof(T).Name;
         if (services.TryGetValue(typeName, out var ctr))
-            return (T?)ctr();
-        return default;
+            return (T)ctr();
+        throw new NullReferenceException("无法找到指定服务的实现类");
     }
 }

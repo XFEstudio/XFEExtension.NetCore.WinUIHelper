@@ -9,14 +9,14 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>XFEExtension.NetCore.WinUIHelper</Title>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>XFEstudio</Authors>
     <PackageIcon>logoIcon.png</PackageIcon>
     <Description>WinUI的各种工具类，帮助开发者快速构建一个模块化的WinUI项目</Description>
     <Copyright>寰宇朽力网络科技有限公司版权所有</Copyright>
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>修复服务无法获取的bug</PackageReleaseNotes>
+    <PackageReleaseNotes>修复获取服务时可能返回空引用的bug</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper.git</RepositoryUrl>
