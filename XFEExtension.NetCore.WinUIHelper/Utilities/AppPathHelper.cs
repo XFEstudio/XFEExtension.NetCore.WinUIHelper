@@ -8,7 +8,7 @@ public partial class AppPathHelper
     /// <summary>
     /// 应用程序名称
     /// </summary>
-    public static string? ApplicationName { get; set; } = Assembly.GetCallingAssembly().GetName().Name;
+    public static string? ApplicationName { get; set; } = (Assembly.GetEntryAssembly() ?? Assembly.GetCallingAssembly()).GetName().Name;
     /// <summary>
     /// 应用程序同步路径
     /// </summary>
