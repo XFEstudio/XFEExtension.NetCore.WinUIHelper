@@ -6,16 +6,22 @@ namespace XFEExtension.NetCore.WinUIHelper.Implements.Services;
 class ListViewService : IListViewService
 {
     private ListView? _listView;
+    private ScrollViewer? _scrollViewer;
 
     public event SelectionChangedEventHandler? SelectionChanged;
 
     public ListView ListView => _listView ?? throw new NullReferenceException();
 
+    public ScrollViewer? ListViewScrollViewer => _scrollViewer;
+
     public void Initialize(ListView listView)
     {
         _listView = listView;
+        listView.Loaded += ListView_Loaded;
         listView.SelectionChanged += ListView_SelectionChanged;
     }
+
+    private void ListView_Loaded(object sender, RoutedEventArgs e) => _scrollViewer = ((IListViewService)this).GetScrollViewer();
 
     private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e) => SelectionChanged?.Invoke(sender, e);
 
