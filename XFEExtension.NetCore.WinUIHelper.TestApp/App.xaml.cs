@@ -1,4 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
+using XFEExtension.NetCore.WinUIHelper.Interface.Services;
+using XFEExtension.NetCore.WinUIHelper.Utilities;
 
 namespace XFEExtension.NetCore.WinUIHelper.TestApp
 {
@@ -14,6 +16,9 @@ namespace XFEExtension.NetCore.WinUIHelper.TestApp
         public App()
         {
             this.InitializeComponent();
+            var service = ServiceManager.GetService<ISelectorBarService>();
+            var service2 = ServiceManager.GetService<INavigationParameterService<string>>();
+            var service3 = ServiceManager.GetService<IMessageService>();
         }
 
         /// <summary>

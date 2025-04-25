@@ -11,16 +11,7 @@ public static class ServiceManager
     private static readonly List<IGlobalService> globalServices = [];
     private static readonly Dictionary<string, Func<object>> services = new()
     {
-        { nameof(IAutoNavigationService), () => new AutoNavigationService() },
-        { nameof(IDialogService), () => new DialogService() },
-        { nameof(IListViewService), () => new ListViewService() },
-        { nameof(ILoadingService), () => new LoadingService() },
-        { nameof(IMessageService), () => new MessageService() },
-        { nameof(INavigationService), () => new AutoNavigationService() },
-        { nameof(INavigationViewService), () => new NavigationViewService() },
-        { nameof(IPageService), () => new PageService() },
-        { nameof(ISettingService), () => new SettingService() },
-        { nameof(IUserLoginService), () => new UserLoginService() }
+        { nameof(INavigationService), () => new AutoNavigationService() }
     };
     /// <summary>
     /// 注册全局服务
@@ -56,6 +47,7 @@ public static class ServiceManager
         var typeName = typeof(T).Name;
         if (services.TryGetValue(typeName, out var ctr))
             return (T)ctr();
-        throw new NullReferenceException("无法找到指定服务的实现类");
+        else
+            return (T?)Activator.CreateInstance(type.Assembly.GetType($"XFEExtension.NetCore.WinUIHelper.Implements.Services.{type.Name![1..]}") ?? throw new NullReferenceException("无法找到指定服务的实现类")) ?? throw new NullReferenceException("无法找到指定服务的实现类");
     }
 }

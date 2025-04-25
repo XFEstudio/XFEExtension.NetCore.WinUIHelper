@@ -9,7 +9,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>XFEExtension.NetCore.WinUIHelper</Title>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Authors>XFEstudio</Authors>
     <PackageIcon>logoIcon.png</PackageIcon>
     <Description>WinUI的各种工具类，帮助开发者快速构建一个模块化的WinUI项目</Description>
@@ -17,6 +17,7 @@
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
+      采用反射获取接口的实现类
     </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper</PackageProjectUrl>
