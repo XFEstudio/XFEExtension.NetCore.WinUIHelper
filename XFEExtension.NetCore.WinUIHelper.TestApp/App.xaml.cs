@@ -1,8 +1,4 @@
 ﻿using Microsoft.UI.Xaml;
-using System.Threading;
-using System.Threading.Tasks;
-using XFEExtension.NetCore.WinUIHelper.Interface.Services;
-using XFEExtension.NetCore.WinUIHelper.Utilities;
 
 namespace XFEExtension.NetCore.WinUIHelper.TestApp
 {
@@ -18,9 +14,6 @@ namespace XFEExtension.NetCore.WinUIHelper.TestApp
         public App()
         {
             this.InitializeComponent();
-            var service1 = ServiceManager.GetService<INavigationParameterService<string?>>();
-            var service2 = ServiceManager.GetService<IDialogService>();
-            var service3 = ServiceManager.GetService<INavigationViewService>();
         }
 
         /// <summary>
