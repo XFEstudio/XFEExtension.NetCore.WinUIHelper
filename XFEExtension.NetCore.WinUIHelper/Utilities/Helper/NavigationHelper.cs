@@ -1,4 +1,5 @@
-﻿using XFEExtension.NetCore.WinUIHelper.Utilities.Addition;
+﻿using XFEExtension.NetCore.WinUIHelper.Interface.Services;
+using XFEExtension.NetCore.WinUIHelper.Utilities.Addition;
 
 namespace XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 
@@ -18,7 +19,7 @@ public static class NavigationHelper
     /// </summary>
     /// <param name="page">目标页面</param>
     /// <returns>导航参数</returns>
-    public static object? GetParameter(this Page page) => page.GetType().GetProperty("Parameter")?.GetValue(page);
+    public static object? GetParameter(this Page page) => (page.GetType().GetProperty("ViewModel")?.PropertyType.GetProperties().Where(property => property.PropertyType.FullName == typeof(IAutoNavigationParameterService<object>).FullName).FirstOrDefault() ?? page.GetType().GetProperty("Parameter"))?.GetValue(page);
     /// <summary>
     /// 获取导航目标附加值
     /// </summary>

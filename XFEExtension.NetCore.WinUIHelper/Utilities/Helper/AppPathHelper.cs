@@ -1,8 +1,11 @@
 ﻿using System.Reflection;
 using XFEExtension.NetCore.AutoPath;
 
-namespace XFEExtension.NetCore.WinUIHelper.Utilities;
+namespace XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 
+/// <summary>
+/// 应用程序路径
+/// </summary>
 public partial class AppPathHelper
 {
     /// <summary>
