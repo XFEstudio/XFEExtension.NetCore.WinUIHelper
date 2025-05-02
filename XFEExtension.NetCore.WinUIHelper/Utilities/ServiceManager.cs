@@ -43,11 +43,11 @@ public static class ServiceManager
     {
         var type = typeof(T);
         if (type.IsGenericType)
-            return (T?)Activator.CreateInstance((type.Assembly.GetType($"XFEExtension.NetCore.WinUIHelper.Implements.Services.{type.Name![1..]}") ?? throw new NullReferenceException("无法找到指定服务的实现类")).MakeGenericType(type.GenericTypeArguments)) ?? throw new NullReferenceException("无法找到指定服务的实现类");
+            return (T?)Activator.CreateInstance((type.Assembly.GetTypes().Where(t => t.Name == type.Name![1..]).FirstOrDefault() ?? throw new NullReferenceException("无法找到指定服务的实现类")).MakeGenericType(type.GenericTypeArguments)) ?? throw new NullReferenceException("无法找到指定服务的实现类");
         var typeName = typeof(T).Name;
         if (services.TryGetValue(typeName, out var ctr))
             return (T)ctr();
         else
-            return (T?)Activator.CreateInstance(type.Assembly.GetType($"XFEExtension.NetCore.WinUIHelper.Implements.Services.{type.Name![1..]}") ?? throw new NullReferenceException("无法找到指定服务的实现类")) ?? throw new NullReferenceException("无法找到指定服务的实现类");
+            return (T?)Activator.CreateInstance(type.Assembly.GetTypes().Where(t => t.Name == type.Name![1..]).FirstOrDefault() ?? throw new NullReferenceException("无法找到指定服务的实现类")) ?? throw new NullReferenceException("无法找到指定服务的实现类");
     }
 }
