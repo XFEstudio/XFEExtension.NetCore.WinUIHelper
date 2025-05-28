@@ -9,7 +9,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>XFEExtension.NetCore.WinUIHelper</Title>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <Authors>XFEstudio</Authors>
     <PackageIcon>logoIcon.png</PackageIcon>
     <Description>WinUI的各种工具类，帮助开发者快速构建一个模块化的WinUI项目</Description>
@@ -17,7 +17,7 @@
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      实现无需注册服务也可直接使用GetService
+      修复导航中的部分bug
     </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper</PackageProjectUrl>
@@ -43,7 +43,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250310001" />
-    <PackageReference Include="XFEExtension.NetCore" Version="3.3.1" />
+    <PackageReference Include="XFEExtension.NetCore" Version="3.3.2" />
     <PackageReference Include="XFEExtension.NetCore.AutoPath" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>

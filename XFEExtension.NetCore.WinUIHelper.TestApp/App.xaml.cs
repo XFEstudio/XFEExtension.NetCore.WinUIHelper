@@ -1,6 +1,7 @@
-﻿using Microsoft.UI.Xaml;
-using XFEExtension.NetCore.WinUIHelper.Interface.Services;
+﻿using XFEExtension.NetCore.WinUIHelper.Interface.Services;
+using XFEExtension.NetCore.WinUIHelper.TestApp.Profiles.CrossVersionProfiles;
 using XFEExtension.NetCore.WinUIHelper.Utilities;
+using XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 
 namespace XFEExtension.NetCore.WinUIHelper.TestApp
 {
@@ -10,15 +11,32 @@ namespace XFEExtension.NetCore.WinUIHelper.TestApp
     public partial class App : Application
     {
         /// <summary>
+        /// 主页窗口
+        /// </summary>
+        public static MainWindow MainWindow { get; set; } = new();
+
+        /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         public App()
         {
             this.InitializeComponent();
-            var service = ServiceManager.GetService<ISelectorBarService>();
-            var service2 = ServiceManager.GetService<INavigationParameterService<string>>();
-            var service3 = ServiceManager.GetService<IMessageService>();
+            AppThemeHelper.Theme = SystemProfile.Theme;
+            PageManager.RegisterPage(typeof(AppShellPage));
+            PageManager.RegisterPage(typeof(MainPage));
+            PageManager.RegisterPage(typeof(TestPage));
+            PageManager.RegisterPage(typeof(SettingPage));
+            UnhandledException += App_UnhandledException;
+        }
+
+        private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            if (ServiceManager.GetService<IMessageService>() is IMessageService messageService)
+            {
+                messageService.ShowMessage(e.Message, "发生错误", InfoBarSeverity.Error);
+                e.Handled = true;
+            }
         }
 
         /// <summary>
@@ -27,10 +45,9 @@ namespace XFEExtension.NetCore.WinUIHelper.TestApp
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
-            m_window.Activate();
+            MainWindow.Content = new AppShellPage();
+            MainWindow.Activate();
+            AppThemeHelper.MainWindow = MainWindow;
         }
-
-        private Window? m_window;
     }
 }
