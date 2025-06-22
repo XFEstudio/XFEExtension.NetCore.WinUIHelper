@@ -9,6 +9,6 @@
     mc:Ignorable="d">
 
     <Grid>
-        <WebView2/>
+        <WebView2 x:Name="webView" Source="https://mms.pinduoduo.com"/>
     </Grid>
 </Page>

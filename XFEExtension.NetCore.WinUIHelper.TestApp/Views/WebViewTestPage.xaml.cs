@@ -1,3 +1,5 @@
+using Microsoft.UI.Xaml.Navigation;
+
 namespace XFEExtension.NetCore.WinUIHelper.TestApp.Views;
 
 /// <summary>
@@ -9,6 +11,14 @@ public sealed partial class WebViewTestPage : Page
     public WebViewTestPageViewModel ViewModel { get; set; } = new();
     public WebViewTestPage()
     {
+        Current = this;
         InitializeComponent();
+        ViewModel.AutoNavigationParameterService.Initialize(this);
+        ViewModel.WebViewService.Initialize(webView);
+    }
+
+    protected override void OnNavigatedTo(NavigationEventArgs e)
+    {
+        ViewModel.AutoNavigationParameterService.OnParameterChange(e.Parameter);
     }
 }

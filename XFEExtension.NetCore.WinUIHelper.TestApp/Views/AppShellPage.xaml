@@ -58,6 +58,11 @@
                                 <FontIcon Glyph="&#xE7C3;"/>
                             </NavigationViewItem.Icon>
                         </NavigationViewItem>
+                        <NavigationViewItem Content="测试网页" add:NavigationAddition.NavigateTo="XFEExtension.NetCore.WinUIHelper.TestApp.Views.WebViewTestPage">
+                            <NavigationViewItem.Icon>
+                                <FontIcon Glyph="&#xE7C3;"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
             </NavigationView.MenuItems>

@@ -26,6 +26,7 @@ namespace XFEExtension.NetCore.WinUIHelper.TestApp
             PageManager.RegisterPage(typeof(AppShellPage));
             PageManager.RegisterPage(typeof(MainPage));
             PageManager.RegisterPage(typeof(TestPage));
+            PageManager.RegisterPage(typeof(WebViewTestPage));
             PageManager.RegisterPage(typeof(SettingPage));
             UnhandledException += App_UnhandledException;
         }
