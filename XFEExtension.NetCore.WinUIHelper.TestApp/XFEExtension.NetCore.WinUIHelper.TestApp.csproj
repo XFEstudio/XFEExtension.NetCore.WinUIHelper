@@ -18,6 +18,7 @@
   <ItemGroup>
     <None Remove="Views\MainPage.xaml" />
     <None Remove="Views\TestPage.xaml" />
+    <None Remove="Views\WebViewTestPage.xaml" />
   </ItemGroup>
   
   <ItemGroup>
@@ -65,6 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFEExtension.NetCore.WinUIHelper\XFEExtension.NetCore.WinUIHelper.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\WebViewTestPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\TestPage.xaml">
