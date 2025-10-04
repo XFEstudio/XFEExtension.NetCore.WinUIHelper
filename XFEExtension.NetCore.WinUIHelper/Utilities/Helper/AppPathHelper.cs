@@ -26,7 +26,7 @@ public partial class AppPathHelper
     /// 应用程序本地当前版本路径
     /// </summary>
     [AutoPath]
-    private static readonly string appLocalVersionData = @$"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\{ApplicationName}\Versions\{(Assembly.GetExecutingAssembly()?.GetName()?.Version?.ToString() ?? "UnknownVersion")}";
+    private static readonly string appLocalVersionData = @$"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\{ApplicationName}\Versions\{(Assembly.GetEntryAssembly() ?? Assembly.GetCallingAssembly()).GetName()?.Version?.ToString() ?? "UnknownVersion"}";
     /// <summary>
     /// 应用程序缓存路径
     /// </summary>
