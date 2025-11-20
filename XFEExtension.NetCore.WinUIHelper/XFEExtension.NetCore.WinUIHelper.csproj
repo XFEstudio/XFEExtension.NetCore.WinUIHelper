@@ -45,6 +45,7 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250310001" />
     <PackageReference Include="XFEExtension.NetCore" Version="3.3.*" />
     <PackageReference Include="XFEExtension.NetCore.AutoPath" Version="1.0.1" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.*" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="Microsoft.UI.Xaml" />
