@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Reflection;
 
-namespace MultiPlatformTranslation.Core.Utilities.Helpers;
+namespace XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 
 /// <summary>
 /// 对象帮助类

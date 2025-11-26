@@ -5,7 +5,7 @@ using XFEExtension.NetCore.WinUIHelper.Utilities;
 
 namespace XFEExtension.NetCore.WinUIHelper.TestApp.ViewModels;
 
-public partial class WebViewTestPageViewModel : ViewModelBase
+public partial class WebViewTestPageViewModel : ObservableObject
 {
     public IAutoNavigationParameterService<string> AutoNavigationParameterService { get; } = ServiceManager.GetService<IAutoNavigationParameterService<string>>();
     public IWebViewService WebViewService { get; } = ServiceManager.GetService<IWebViewService>();

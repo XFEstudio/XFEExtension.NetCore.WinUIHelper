@@ -4,7 +4,7 @@ using XFEExtension.NetCore.WinUIHelper.Utilities;
 
 namespace XFEExtension.NetCore.WinUIHelper.TestApp.ViewModels;
 
-public partial class TestPageViewModel : ViewModelBase
+public partial class TestPageViewModel : ObservableObject
 {
     [ObservableProperty]
     private string? parameter;

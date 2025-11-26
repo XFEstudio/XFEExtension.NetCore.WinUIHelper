@@ -11,7 +11,7 @@ using XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 
 namespace XFEExtension.NetCore.WinUIHelper.TestApp.ViewModels
 {
-    public partial class SettingPageViewModel : ViewModelBase
+    public partial class SettingPageViewModel : ObservableObject
     {
         [ObservableProperty]
         bool isAutoStartEnable = SystemProfile.AutoStart;

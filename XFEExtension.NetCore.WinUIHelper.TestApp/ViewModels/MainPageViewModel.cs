@@ -5,7 +5,7 @@ using XFEExtension.NetCore.WinUIHelper.Utilities;
 
 namespace XFEExtension.NetCore.WinUIHelper.TestApp.ViewModels
 {
-    public partial class MainPageViewModel : ViewModelBase
+    public partial class MainPageViewModel : ObservableObject
     {
         [ObservableProperty]
         int clickCount = 0;

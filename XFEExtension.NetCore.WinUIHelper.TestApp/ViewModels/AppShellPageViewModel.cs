@@ -5,7 +5,7 @@ using XFEExtension.NetCore.WinUIHelper.Utilities;
 
 namespace XFEExtension.NetCore.WinUIHelper.TestApp.ViewModels
 {
-    public partial class AppShellPageViewModel : ViewModelBase
+    public partial class AppShellPageViewModel : ObservableObject
     {
         [ObservableProperty]
         bool canGoBack;
