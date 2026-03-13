@@ -9,7 +9,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>XFEExtension.NetCore.WinUIHelper</Title>
-    <Version>1.2.4</Version>
+    <Version>1.2.5</Version>
     <Authors>XFEstudio</Authors>
     <PackageIcon>logoIcon.png</PackageIcon>
     <Description>WinUI的各种工具类，帮助开发者快速构建一个模块化的WinUI项目</Description>
@@ -17,8 +17,10 @@
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
-			添加多个服务类
-		</PackageReleaseNotes>
+      命名空间重命名及版本号升级至1.2.5
+
+      将 Utilities.Addition 重命名为 Utilities.Additions，并同步更新相关引用。项目版本号由 1.2.4 升级为 1.2.5。
+    </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper.git</RepositoryUrl>

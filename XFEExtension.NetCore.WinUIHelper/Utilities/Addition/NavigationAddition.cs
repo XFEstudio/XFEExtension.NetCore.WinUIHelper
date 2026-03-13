@@ -1,4 +1,4 @@
-﻿namespace XFEExtension.NetCore.WinUIHelper.Utilities.Addition;
+﻿namespace XFEExtension.NetCore.WinUIHelper.Utilities.Additions;
 
 /// <summary>
 /// Provides attached properties for associating navigation targets and parameters with NavigationViewItem controls.

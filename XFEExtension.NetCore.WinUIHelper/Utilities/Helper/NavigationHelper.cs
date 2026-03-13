@@ -1,6 +1,6 @@
 ﻿using XFEExtension.NetCore.WinUIHelper.Implements.Services;
 using XFEExtension.NetCore.WinUIHelper.Interface.Services;
-using XFEExtension.NetCore.WinUIHelper.Utilities.Addition;
+using XFEExtension.NetCore.WinUIHelper.Utilities.Additions;
 
 namespace XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 

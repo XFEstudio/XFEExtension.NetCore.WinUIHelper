@@ -1,7 +1,7 @@
 ﻿using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using XFEExtension.NetCore.WinUIHelper.Interface.Services;
-using XFEExtension.NetCore.WinUIHelper.Utilities.Addition;
+using XFEExtension.NetCore.WinUIHelper.Utilities.Additions;
 using XFEExtension.NetCore.WinUIHelper.Utilities.Helper;
 using System.Diagnostics.CodeAnalysis;
 
