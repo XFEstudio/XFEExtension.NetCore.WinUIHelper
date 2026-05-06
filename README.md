@@ -73,7 +73,7 @@ Create a Shell page (e.g. `AppShellPage`) containing a `NavigationView` and bind
 ```csharp
 public class AppShellPageViewModel : ObservableObject
 {
-    // Use GetService to obtain a new service instance
+    // Use GetService to obtain a service instance
     public INavigationViewService NavigationViewService { get; set; } = ServiceManager.GetService<INavigationViewService>();
     public IMessageService MessageService { get; set; } = ServiceManager.GetService<IMessageService>();
     public ILoadingService LoadingService { get; set; } = ServiceManager.GetService<ILoadingService>();
