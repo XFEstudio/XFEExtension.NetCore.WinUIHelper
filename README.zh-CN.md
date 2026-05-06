@@ -56,10 +56,15 @@ public App()
 private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
 {
     // 使用消息服务显示错误
-    if (ServiceManager.GetService<IMessageService>() is IMessageService messageService)
+    try
     {
+        var messageService = ServiceManager.GetService<IMessageService>();
         messageService.ShowMessage(e.Message, "发生错误", InfoBarSeverity.Error);
         e.Handled = true;
+    }
+    catch
+    {
+        // IMessageService 未注册时忽略，避免在异常处理流程中再次抛出异常
     }
 }
 ```
