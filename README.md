@@ -1,72 +1,79 @@
 # XFEExtension.NetCore.WinUIHelper
 
-基于 .NET 8 的 WinUI 3 扩展库，提供了一系列便捷的帮助类、服务和扩展方法，旨在简化 WinUI 3 应用的开发流程。
+[![NuGet Version](https://img.shields.io/nuget/v/XFEExtension.NetCore.WinUIHelper?style=flat-square&logo=nuget)](https://www.nuget.org/packages/XFEExtension.NetCore.WinUIHelper)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/XFEExtension.NetCore.WinUIHelper?style=flat-square&logo=nuget)](https://www.nuget.org/packages/XFEExtension.NetCore.WinUIHelper)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE.txt)
+[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
 
-## 目录
+> 📖 [中文文档](README.zh-CN.md)
 
-- [特性](#特性)
-- [快速开始](#快速开始)
-  - [1. 初始化配置](#1-初始化配置)
-  - [2. 构建 Shell 页](#2-构建-shell-页)
-  - [3. 使用服务](#3-使用服务)
-- [核心功能](#核心功能)
+A WinUI 3 extension library based on .NET 8, providing a set of convenient helper classes, services, and extension methods to streamline WinUI 3 application development.
+
+## Table of Contents
+
+- [Features](#features)
+- [Quick Start](#quick-start)
+  - [1. Initialization](#1-initialization)
+  - [2. Build the Shell Page](#2-build-the-shell-page)
+  - [3. Using Services](#3-using-services)
+- [Core Features](#core-features)
   - [ServiceManager](#servicemanager)
-  - [导航服务](#导航服务)
-  - [消息与对话框](#消息与对话框)
-- [常用工具类](#常用工具类)
+  - [Navigation Service](#navigation-service)
+  - [Messages and Dialogs](#messages-and-dialogs)
+- [Utility Classes](#utility-classes)
 
-## 特性
+## Features
 
-- **轻量级 IOC 容器**：内置 `ServiceManager`，支持服务注册与全局单例获取。
-- **导航管理**：封装 `NavigationView` 和 `Frame`，提供基于 ViewModel 的导航体验。
-- **UI交互服务**：提供 `DialogService`、`MessageService` (类似 InfoBar)、`LoadingService` 等常用交互服务。
-- **MVVM 支持**：提供 `ObservableObject` 扩展及通用 ViewModel 基类。
+- **Lightweight IoC Container**: Built-in `ServiceManager` supporting service registration and global singleton retrieval.
+- **Navigation Management**: Wraps `NavigationView` and `Frame` to provide a ViewModel-driven navigation experience.
+- **UI Interaction Services**: Offers `DialogService`, `MessageService` (similar to InfoBar), `LoadingService`, and other common interaction services.
+- **MVVM Support**: Provides `ObservableObject` extensions and a general-purpose ViewModel base class.
 
-## 快速开始
+## Quick Start
 
-### 1. 初始化配置
+### 1. Initialization
 
-在 `App.xaml.cs` 中进行初始化，包括注册页面和配置异常处理。
+Initialize in `App.xaml.cs`, including page registration and exception handling setup.
 
 ```csharp
 public App()
 {
     this.InitializeComponent();
     
-    // 设置应用主题
+    // Set application theme
     AppThemeHelper.Theme = ElementTheme.Dark; 
 
-    // 注册导航页面 (PageManager)
-    // 必须在此处注册所有可通过字符串或类型导航的页面
+    // Register navigation pages (PageManager)
+    // All pages navigable by string or type must be registered here
     PageManager.RegisterPage(typeof(AppShellPage));
     PageManager.RegisterPage(typeof(MainPage));
     PageManager.RegisterPage(typeof(TestPage));
     
-    // 全局异常捕获（可选）
+    // Global exception handling (optional)
     UnhandledException += App_UnhandledException;
 }
 
 private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
 {
-    // 使用消息服务显示错误
+    // Display error using the message service
     if (ServiceManager.GetService<IMessageService>() is IMessageService messageService)
     {
-        messageService.ShowMessage(e.Message, "发生错误", InfoBarSeverity.Error);
+        messageService.ShowMessage(e.Message, "An error occurred", InfoBarSeverity.Error);
         e.Handled = true;
     }
 }
 ```
 
-### 2. 构建 Shell 页
+### 2. Build the Shell Page
 
-创建一个包含 `NavigationView` 的 Shell 页（例如 `AppShellPage`），并绑定相关服务。
+Create a Shell page (e.g. `AppShellPage`) containing a `NavigationView` and bind the relevant services.
 
 **AppShellPageViewModel.cs**:
 
 ```csharp
 public class AppShellPageViewModel : ObservableObject
 {
-    // 使用 GetService 获取服务新实例
+    // Use GetService to obtain a new service instance
     public INavigationViewService NavigationViewService { get; set; } = ServiceManager.GetService<INavigationViewService>();
     public IMessageService MessageService { get; set; } = ServiceManager.GetService<IMessageService>();
     public ILoadingService LoadingService { get; set; } = ServiceManager.GetService<ILoadingService>();
@@ -85,69 +92,69 @@ public sealed partial class AppShellPage : Page
         Current = this;
         this.InitializeComponent();
 
-        // 1. 初始化导航服务 (绑定 NavigationView 和 Frame)
+        // 1. Initialize navigation service (bind NavigationView and Frame)
         ViewModel.NavigationViewService.Initialize(navigationView, navigationFrame);
         
-        // 2. 初始化消息服务 (绑定用于显示消息的 StackPanel)
+        // 2. Initialize message service (bind the StackPanel used to display messages)
         ViewModel.MessageService.Initialize(messageStackPanel, DispatcherQueue);
         
-        // 3. 初始化加载服务 (绑定 Loading 控件)
+        // 3. Initialize loading service (bind loading controls)
         ViewModel.LoadingService.Initialize(loadingGrid, globalLoadingGrid, globalLoadingTextBlock, DispatcherQueue, ViewModel.NavigationViewService.NavigationService);
         
-        // 4. 初始导航
+        // 4. Initial navigation
         ViewModel.NavigationViewService.NavigateTo<MainPage>();
     }
 }
 ```
 
-### 3. 使用服务
+### 3. Using Services
 
-在子页面（如 `MainPage`）的 ViewModel 中，可以通过 `ServiceManager.GetGlobalService<T>()` 获取在 Shell 页已初始化的**全局服务实例**。
+In a child page's ViewModel (e.g. `MainPage`), use `ServiceManager.GetGlobalService<T>()` to retrieve the **global service instance** that was initialized in the Shell page.
 
 ```csharp
 public partial class MainPageViewModel : ObservableObject
 {
-    // 获取全局实例 (注意使用 GetGlobalService)
+    // Retrieve global instances (use GetGlobalService)
     public INavigationViewService? NavigationViewService { get; } = ServiceManager.GetGlobalService<INavigationViewService>();
     public IMessageService? MessageService { get; } = ServiceManager.GetGlobalService<IMessageService>();
 
     [RelayCommand]
     void DoSomething()
     {
-        // 显示消息
-        MessageService?.ShowMessage("操作成功！", "提示", InfoBarSeverity.Success);
+        // Show a message
+        MessageService?.ShowMessage("Operation successful!", "Info", InfoBarSeverity.Success);
         
-        // 页面跳转
-        NavigationViewService?.NavigateTo<TestPage>("传递的参数");
+        // Navigate to another page
+        NavigationViewService?.NavigateTo<TestPage>("parameter to pass");
     }
 }
 ```
 
-## 核心功能
+## Core Features
 
-### ServiceManager (服务管理器)
+### ServiceManager
 
-简单的依赖注入及服务定位器。
+A simple dependency injection and service locator.
 
-- `GetService<T>()`: 获取服务实例。如果该服务类型遵循命名约定（如 `IMyService` -> `MyService`），则会自动创建实例。
-- `GetGlobalService<T>()`: 获取**已注册**的全局单例服务。通常继承自 `GlobalServiceBase` 的服务在实例化时（如在 Shell 页初始化时）会自动注册为全局单例。
+- `GetService<T>()`: Gets a service instance. If the type follows the naming convention (e.g. `IMyService` → `MyService`), an instance is created automatically.
+- `GetGlobalService<T>()`: Gets a **registered** global singleton service. Services inheriting from `GlobalServiceBase` automatically register themselves as global singletons when instantiated (e.g. during Shell page initialization).
 
-### 导航服务 (INavigationViewService)
+### Navigation Service
 
-用于管理 `NavigationView` 的选中状态与 `Frame` 的页面跳转同步。
+Manages `NavigationView` selection state and `Frame` page transition synchronization via `INavigationViewService`.
 
-- `Initialize(...)`: 必须在使用前调用，绑定 UI 元素。
-- `NavigateTo<TPage>(parameter)`: 导航到指定页面。
-- `NavigationService.CanGoBack`: 检查是否可后退。
+- `Initialize(...)`: Must be called before use to bind UI elements.
+- `NavigateTo<TPage>(parameter)`: Navigates to the specified page.
+- `NavigationService.CanGoBack`: Checks whether back navigation is available.
 
-### 消息与对话框
+### Messages and Dialogs
 
-- **IMessageService**: 在界面特定区域显示非阻塞通知。需在 Shell 页的 XAML 中放置一个 `StackPanel` 作为容器。
-- **IDialogService**: 显示内容对话框。
-- **ILoadingService**: 管理加载状态，支持页面级遮罩和全局遮罩。
+- **IMessageService**: Displays non-blocking notifications in a designated area of the UI. Requires a `StackPanel` container placed in the Shell page's XAML.
+- **IDialogService**: Displays content dialogs.
+- **ILoadingService**: Manages loading states, supporting both page-level overlays and global overlays.
 
-## 常用工具类
+## Utility Classes
 
-- **PageManager**: 静态类，用于注册页面类型，使导航系统能通过 Type 找到对应的页面。
-- **AppThemeHelper**: 用于管理应用的主题（Light/Dark/System）。
-- **NavigationHelper**: 提供了 `SetParameter` 等方法用于页面间参数传递。
+- **PageManager**: A static class used to register page types so the navigation system can locate them by `Type`.
+- **AppThemeHelper**: Manages the application theme (Light / Dark / System).
+- **NavigationHelper**: Provides methods such as `SetParameter` for passing parameters between pages.
