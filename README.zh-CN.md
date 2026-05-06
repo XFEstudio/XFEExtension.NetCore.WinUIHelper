@@ -73,7 +73,7 @@ private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledEx
 ```csharp
 public class AppShellPageViewModel : ObservableObject
 {
-    // 使用 GetService 获取服务新实例
+    // 使用 GetService 获取服务实例
     public INavigationViewService NavigationViewService { get; set; } = ServiceManager.GetService<INavigationViewService>();
     public IMessageService MessageService { get; set; } = ServiceManager.GetService<IMessageService>();
     public ILoadingService LoadingService { get; set; } = ServiceManager.GetService<ILoadingService>();
