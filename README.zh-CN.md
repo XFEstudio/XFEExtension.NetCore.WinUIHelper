@@ -3,7 +3,7 @@
 [![NuGet Version](https://img.shields.io/nuget/v/XFEExtension.NetCore.WinUIHelper?style=flat-square&logo=nuget)](https://www.nuget.org/packages/XFEExtension.NetCore.WinUIHelper)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/XFEExtension.NetCore.WinUIHelper?style=flat-square&logo=nuget)](https://www.nuget.org/packages/XFEExtension.NetCore.WinUIHelper)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE.txt)
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
+[![.NET](https://img.shields.io/badge/.NET-net8.0--windows-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
 
 > 📖 [English Documentation](README.md) | 中文文档
 
