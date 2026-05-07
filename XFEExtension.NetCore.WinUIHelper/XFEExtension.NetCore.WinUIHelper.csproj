@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>XFEExtension.NetCore.WinUIHelper</RootNamespace>
     <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
@@ -9,7 +9,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>XFEExtension.NetCore.WinUIHelper</Title>
-    <Version>1.2.5</Version>
+    <Version>2.0.0</Version>
     <Authors>XFEstudio</Authors>
     <PackageIcon>logoIcon.png</PackageIcon>
     <Description>WinUI的各种工具类，帮助开发者快速构建一个模块化的WinUI项目</Description>
@@ -17,9 +17,7 @@
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      命名空间重命名及版本号升级至1.2.5
-
-      将 Utilities.Addition 重命名为 Utilities.Additions，并同步更新相关引用。项目版本号由 1.2.4 升级为 1.2.5。
+      目前已正式升级至.NET 10.0
     </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper</PackageProjectUrl>
@@ -43,9 +41,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250310001" />
-    <PackageReference Include="XFEExtension.NetCore" Version="3.3.*" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.1839" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.0.1" />
+    <PackageReference Include="XFEExtension.NetCore" Version="4.2.3" />
     <PackageReference Include="XFEExtension.NetCore.AutoPath" Version="1.0.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.*" />
   </ItemGroup>
