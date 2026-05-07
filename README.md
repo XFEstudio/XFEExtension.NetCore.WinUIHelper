@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE.txt)
 [![.NET](https://img.shields.io/badge/.NET-net8.0--windows-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
 
-> 📖 [中文文档](https://github.com/XFEExtension/XFEExtension.NetCore.WinUIHelper/blob/main/README.zh-CN.md)
+> 📖 [中文文档](https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper/blob/master/README.zh-CN.md)
 
 A WinUI 3 extension library based on .NET 8, providing a set of convenient helper classes, services, and extension methods to streamline WinUI 3 application development.
 
