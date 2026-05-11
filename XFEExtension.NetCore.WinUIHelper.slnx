@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="XFEExtension.NetCore.WinUIHelper.TestApp/XFEExtension.NetCore.WinUIHelper.TestApp.csproj">
+    <Platform Project="x64" />
+    <Deploy />
+  </Project>
+  <Project Path="XFEExtension.NetCore.WinUIHelper/XFEExtension.NetCore.WinUIHelper.csproj" />
+</Solution>
