@@ -9,7 +9,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>XFEExtension.NetCore.WinUIHelper</Title>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <Authors>XFEstudio</Authors>
     <PackageIcon>logoIcon.png</PackageIcon>
     <Description>WinUI的各种工具类，帮助开发者快速构建一个模块化的WinUI项目</Description>
@@ -17,7 +17,11 @@
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      目前已正式升级至.NET 10.0
+      切换为解决方案级构建并优化工作流与文档
+
+      更新 GitHub Actions 工作流，统一使用解决方案路径进行 restore 和 build，优化发布流程及 Release 说明。
+      调整 README 徽章样式，.NET 版本号更新为 10.0。
+      升级 XFEExtension.NetCore.AutoPath 包至 2.0.0。
     </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper</PackageProjectUrl>
@@ -44,7 +48,7 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.1839" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.0.1" />
     <PackageReference Include="XFEExtension.NetCore" Version="4.2.3" />
-    <PackageReference Include="XFEExtension.NetCore.AutoPath" Version="1.0.1" />
+    <PackageReference Include="XFEExtension.NetCore.AutoPath" Version="2.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.*" />
   </ItemGroup>
   <ItemGroup>

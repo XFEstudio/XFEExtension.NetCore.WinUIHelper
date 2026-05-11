@@ -1,11 +1,11 @@
 # XFEExtension.NetCore.WinUIHelper
 
-[![NuGet Version](https://img.shields.io/nuget/v/XFEExtension.NetCore.WinUIHelper?style=flat-square&logo=nuget)](https://www.nuget.org/packages/XFEExtension.NetCore.WinUIHelper)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/XFEExtension.NetCore.WinUIHelper?style=flat-square&logo=nuget)](https://www.nuget.org/packages/XFEExtension.NetCore.WinUIHelper)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE.txt)
-[![.NET](https://img.shields.io/badge/.NET-net8.0--windows-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
+[![NuGet](https://img.shields.io/nuget/v/XFEExtension.NetCore.WinUIHelper?label=NuGet&logo=NuGet)](https://www.nuget.org/packages/XFEExtension.NetCore.WinUIHelper/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/XFEExtension.NetCore.WinUIHelper?label=Downloads&logo=NuGet)](https://www.nuget.org/packages/XFEExtension.NetCore.WinUIHelper/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.txt)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/download)
 
-> 📖 [中文文档](https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper/blob/master/README.zh-CN.md)
+> 📖 English | [简体中文](https://github.com/XFEstudio/XFEExtension.NetCore.WinUIHelper/blob/master/README.zh-CN.md)
 
 A WinUI 3 extension library based on .NET 8, providing a set of convenient helper classes, services, and extension methods to streamline WinUI 3 application development.
 
