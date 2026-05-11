@@ -13,6 +13,7 @@ permissions:
 env:
   DOTNET_VERSION: 10.0.x
   SOLUTION_PATH: XFEExtension.NetCore.WinUIHelper.slnx
+  PROJECT_PATH: XFEExtension.NetCore.WinUIHelper/XFEExtension.NetCore.WinUIHelper.csproj
 
 jobs:
   build:
@@ -28,7 +29,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore
-        run: dotnet restore ${{ env.SOLUTION_PATH }}
+        run: dotnet restore ${{ env.PROJECT_PATH }}
 
       - name: Build
-        run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore -p:GeneratePackageOnBuild=false -p:ContinuousIntegrationBuild=true
+        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore -p:GeneratePackageOnBuild=false -p:ContinuousIntegrationBuild=true
